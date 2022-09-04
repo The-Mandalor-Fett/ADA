@@ -27,9 +27,10 @@ void ordenamientoInsercion(int arregloRecibido[], int numeroElementosRecibidos)
         hueco = i - 1; // hueco ES UN ELEMENTO UNO ANTES QUE i 
         // SE VA A ESTAR MOVIENDO HACIA ATRAS UNO POR UNO 
         //ESTO LO HACE HASTA QUE ENCUENTRE UN ELEMENTO MÁS pequeño O HASTA LLEGAR AL FINAL DEL ARREGLO 
+        printf("hueco for %d\n",hueco);
         while (arregloRecibido[hueco] > valor && hueco >= 0)// SI LO ANTERIOR NO OCURRE
         {// RECORREMOS EL ARREGLO POR LA IZQUIERDA, PARA IR HACIENDO HUECO EN EL ARREGLO
-            printf("%d\n",hueco);
+            // printf("%d\n",hueco);
             arregloRecibido[hueco + 1] = arregloRecibido[hueco];
             hueco = hueco - 1;
         }
