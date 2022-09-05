@@ -50,14 +50,14 @@ int main(int argc, char const *argv[])
     printf("Por favor introduce el numero de elementos del arreglo: ");
     scanf("%d",&numeroDeElementos);
     int arreglo[numeroDeElementos];
-    numerosAleatorios(arreglo,numeroDeElementos); //MANDA A LLAMAR A LA FUNCIO numerosAleatorios
+    numerosAleatorios(arreglo,numeroDeElementos); //MANDA A LLAMAR A LA FUNCIÓN numerosAleatorios
     printf("Numeros del arreglo sin ordenar\n");
     for (int i = 0; i < numeroDeElementos; i++)
     {
         printf("%d,", arreglo[i]);
     }
     printf("\n \n");
-    ordenamientoInsercion(arreglo,numeroDeElementos);
+    ordenamientoInsercion(arreglo,numeroDeElementos); // MANDA A LLAMAR A LA FUNCIÓN ordenamientoInsercion
     printf("Numeros del arreglo ordenados\n");
     for (int i = 0; i < numeroDeElementos; i++)
     {
