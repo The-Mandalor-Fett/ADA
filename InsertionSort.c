@@ -46,10 +46,11 @@ void ordenamientoInsercion(int arregloRecibido[], int numeroElementosRecibidos)
 int main(int argc, char const *argv[])
 {
     srand(time(NULL));
-    int numeroDeElementos = 0;
+    int numeroDeElementos;
     printf("Por favor introduce el numero de elementos del arreglo: ");
     scanf("%d",&numeroDeElementos);
-    int arreglo[numeroDeElementos];
+    int *arreglo = (int*)malloc(numeroDeElementos*sizeof(int));
+  
     numerosAleatorios(arreglo,numeroDeElementos); //MANDA A LLAMAR A LA FUNCIÓN numerosAleatorios
     printf("Numeros del arreglo sin ordenar\n");
     for (int i = 0; i < numeroDeElementos; i++)
@@ -65,5 +66,6 @@ int main(int argc, char const *argv[])
     }
     printf("\n \n");
     system("pause");
+    free(arreglo);
     return 0;
 }
