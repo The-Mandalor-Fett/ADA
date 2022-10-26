@@ -22,6 +22,23 @@ void numerosAleatorios(int arregloRecibido[],int numElementosRecibido)
 int main(int argc, char const *argv[])
 {
     srand(time(NULL));
+    int tamanio = 10;
+    // int tamanio = 100;
+    // int tamanio = 1000;
+    // int tamanio = 10000;
+    // int tamanio = 40000;
+    // int tamanio = 100000;
+    // int tamanio = 200000;
+    // int tamanio = 400000;
+    int *arreglo = (int*)malloc(tamanio*sizeof(int));
+    numerosAleatorios(arreglo,tamanio);
+    printf("Numeros del arreglo sin ordenar\n");
+    for (int i = 0; i < tamanio; i++)
+    {
+        printf("%d,", arreglo[i]);
+    }
+    printf("\n \n");
 
+    system("pause");
     return 0;
 }
