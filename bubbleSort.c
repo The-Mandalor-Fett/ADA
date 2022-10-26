@@ -72,5 +72,6 @@ int main(int argc, char const *argv[])
     }
     printf("\n \n");
     system("pause");
+    free(arreglo);
     return 0;
 }
