@@ -3,16 +3,17 @@
 #include <time.h>
 // DECLARACIÓN DE FUNCIONES
 void numerosAleatorios(int arregloRecibido[],int numElementosRecibido); //GENERA NUMEROS ALEATORIOS PARA EL ARRAY
-void ordenamientoRapido(int arregloRecibido[], int numeroElementosRecibidos); //ORDENA LOS ELEMENTOS 
-int quickSort(int arreglorecibido[], int inicioArray, int finArray); // DIVIDE EL ARREGLO Y REALIZA LOS INTERCAMBIOS
-
-
+void ordenamientoRapido(int arregloRecibido[], int inicioArreglo, int finArreglo); //ORDENA LOS ELEMENTOS 
+void quickSort(int arreglorecibido[], int inicioArray, int finArray); // DIVIDE EL ARREGLO 
+void intercambio(int arreglorecibido[], int inicioArray, int finArray); //REALIZA EL intercambio
 
 int main(int argc, char const *argv[])
 {
+    clock_t inicioAlgoritmo, finAlgorimto;
     srand(time(NULL));
     int numeroElementos = 0;
     int *arreglo = NULL;
+    inicioAlgoritmo = clock();
     printf("Por favor introduce un número de elementos : ");
     scanf("%d", &numeroElementos);
     arreglo = (int *)malloc(numeroElementos * sizeof(int));
@@ -22,9 +23,20 @@ int main(int argc, char const *argv[])
     {
         printf("%d, ",arreglo[i]);
     }
+    
     printf("\n \n");
-    ordenamientoRapido(arreglo, numeroElementos);
-
+ 
+    quickSort(arreglo, 0, numeroElementos-1);
+    finAlgorimto = clock();
+    double duracion = ((double)finAlgorimto - inicioAlgoritmo) / CLOCKS_PER_SEC;
+    printf("El algoritmo tardo : %f", duracion);
+    printf("\n");
+    printf("Arreglo ordenado: ");
+    for (int i = 0; i < numeroElementos; i++)
+    {
+        printf("%d, ", arreglo[i]);
+    }
+    
     return 0;
 }
 
@@ -36,4 +48,44 @@ void numerosAleatorios(int arregloRecibido[], int numElementosRecibido)
         arregloRecibido[i] = rand()%100; //LLENAMOS EL ARREGLO CON NÚMEROS DEL 0 AL 99
     }
     
+}
+
+void quickSort(int arreglorecibido[], int inicioArray, int finArray)
+{
+    int arregloDerecha = 0;
+    int arregloIzquierda = 0;
+    int pivote = arreglorecibido[(inicioArray + finArray) / 2]; //SE OBTIENE EL pivote
+    int auxiliar = 0;
+    pivote = arreglorecibido[inicioArray];
+    arregloIzquierda = inicioArray;
+    arregloDerecha = finArray;
+    while(arregloIzquierda <= arregloDerecha)
+	{	
+		while(arreglorecibido[arregloIzquierda] < pivote) //
+        {
+           arregloIzquierda++; 
+        }
+
+		while(arreglorecibido[arregloDerecha] > pivote)  
+        {
+        // 
+			arregloDerecha--;
+        } 
+
+		if(arregloIzquierda <= arregloDerecha)             //
+		{
+			intercambio(arreglorecibido,arregloIzquierda,arregloDerecha);
+			arregloIzquierda++;
+			arregloDerecha--;
+		}
+	}
+    
+    
+}
+void intercambio(int arreglorecibido[], int inicioArray, int finArray) //
+{
+    int auxiliar;
+	auxiliar=arreglorecibido[inicioArray];
+	arreglorecibido[inicioArray]=arreglorecibido[finArray];
+	arreglorecibido[finArray]=auxiliar;
 }
