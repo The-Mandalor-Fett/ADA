@@ -61,18 +61,18 @@ void quickSort(int arreglorecibido[], int inicioArray, int finArray)
     arregloDerecha = finArray;
     while(arregloIzquierda <= arregloDerecha)
 	{	
-		while(arreglorecibido[arregloIzquierda] < pivote) //
+		while(arreglorecibido[arregloIzquierda] < pivote) // OBTIENE EL VALOR MENOR DEL LADO IZQUIERDO PARA INTERCAMBIAR
         {
            arregloIzquierda++; 
         }
 
-		while(arreglorecibido[arregloDerecha] > pivote)  
+		while(arreglorecibido[arregloDerecha] > pivote)  // OBTIENE EL VALOR MENOR DEL LADO DERECHO PARA INTERCAMBIAR
         {
         // 
 			arregloDerecha--;
         } 
 
-		if(arregloIzquierda <= arregloDerecha)             //
+		if(arregloIzquierda <= arregloDerecha)             // SE INTERCAMBIAN LOS VALORES SI SE ENCUENTRA UNO MAYOR A LA IZQUIERDA
 		{
 			intercambio(arreglorecibido,arregloIzquierda,arregloDerecha);
 			arregloIzquierda++;
