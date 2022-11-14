@@ -9,4 +9,3 @@ def maxArreglo(arregloRecibido):
     maximoPorIzq = maxArreglo(arreglo_Izq)
     maximoPorDer = maxArreglo(arreglo_Der)
 
-    
