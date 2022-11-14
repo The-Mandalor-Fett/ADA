@@ -10,4 +10,23 @@ def maxArreglo(arregloRecibido):
     maximoPorDer = maxArreglo(arreglo_Der)
     maximoMitad = calcularMaximoMitad(arregloRecibido, mitadArreglo)
 
-    
+    return max(maximoPorIzq, maximoPorDer, maximoMitad)
+
+def calcularMaximoMitad(arregloRecibido, mitad):
+    suma = 0
+    maximoPorIzq = -1000000000
+    for numero in arregloRecibido[mitad - 1 :: - 1]:
+        suma = suma + numero
+        if (suma > maximoPorIzq):
+            maximoPorIzq = suma
+    suma2 = 0
+    maximoPorDer = -1000000000
+    for numero in arregloRecibido[mitad : ]:
+        suma = suma + numero
+        if (suma > maximoPorDer):
+            maximoPorDer = suma
+    return maximoPorIzq + maximoPorDer
+
+arreglo = [-3,1-2,2,-1,2]
+arregloMaximo = maxArreglo(arreglo)
+print(arregloMaximo)
