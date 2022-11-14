@@ -8,4 +8,6 @@ def maxArreglo(arregloRecibido):
     arreglo_Der = arregloRecibido[mitadArreglo : ] # VA DE LA mitad HASTA LLEGAR AL FINAL
     maximoPorIzq = maxArreglo(arreglo_Izq)
     maximoPorDer = maxArreglo(arreglo_Der)
+    maximoMitad = calcularMaximoMitad(arregloRecibido, mitadArreglo)
 
+    
